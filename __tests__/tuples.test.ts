@@ -1,4 +1,4 @@
-import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTuple, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct } from "../features/tuples"
+import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTupleByScalar, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct, multiplyTuple } from "../features/tuples"
 import { Vector, Point, Tuple, Color } from "../types/types"
 
 const tuplePoint: Point = {
@@ -140,10 +140,10 @@ describe("multiply tuples", () => {
   const fraction = 0.5
   const fractionResult = new Tuple(0.5, -1, 1.5, -2)
   it("multiply a tuple by a scalar", () => {
-    expect(multiplyTuple(tuple, scalar)).toEqual(scalarResult)
+    expect(multiplyTupleByScalar(tuple, scalar)).toEqual(scalarResult)
   })
   it("multiply a tuple by a fraction", () => {
-    expect(multiplyTuple(tuple, fraction)).toEqual(fractionResult)
+    expect(multiplyTupleByScalar(tuple, fraction)).toEqual(fractionResult)
   })
 })
 
@@ -216,6 +216,9 @@ describe("colors operations", () => {
     expect(subtractTuple(c1, c2)).toEqual(new Color(0.2, 0.5, 0.5))
   })
   it("it should multiply color by a scalar", () => {
-    expect(multiplyTuple(new Color(0.2, 0.3, 0.4), 2)).toEqual(new Color(0.4, 0.6, 0.8))
+    expect(multiplyTupleByScalar(new Color(0.2, 0.3, 0.4), 2)).toEqual(new Color(0.4, 0.6, 0.8))
+  })
+  it("it should multiply color", () => {
+    expect(multiplyTuple(new Color(1, 0.2, 0.4), new Color(0.9, 1, 0.1))).toEqual(new Color(0.9, 0.2, 0.04))
   })
 })

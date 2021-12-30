@@ -37,11 +37,19 @@ export const negateTuple = (tuple: Tuple): Tuple | Error => {
   return subtractTuple(zero, tuple)
 }
 
-export const multiplyTuple = (a: Tuple, b: number): Tuple => {
+export const multiplyTupleByScalar = (a: Tuple, b: number): Tuple => {
   const x = Math.round((a.x * b + Number.EPSILON) * 100000) / 100000
   const y = Math.round((a.y * b + Number.EPSILON) * 100000) / 100000
   const z = Math.round((a.z * b + Number.EPSILON) * 100000) / 100000
   const w = Math.round((a.w * b + Number.EPSILON) * 100000) / 100000
+  return new Tuple(x, y, z, w)
+}
+
+export const multiplyTuple = (a: Tuple, b: Tuple): Tuple => {
+  const x = Math.round((a.x * b.x + Number.EPSILON) * 100000) / 100000
+  const y = Math.round((a.y * b.y + Number.EPSILON) * 100000) / 100000
+  const z = Math.round((a.z * b.z + Number.EPSILON) * 100000) / 100000
+  const w = Math.round((a.w * b.w + Number.EPSILON) * 100000) / 100000
   return new Tuple(x, y, z, w)
 }
 
