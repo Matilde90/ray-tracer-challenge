@@ -77,3 +77,16 @@ export class Environment implements IEnvironment {
   }
 }
 
+export class Color implements ITuple {
+  x: number;
+  y: number;
+  z: number;
+  w: number;
+  constructor(x: number, y: number, z: number, w?: number) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    w ? this.w = w : this.w = 0;
+  }
+}
+
