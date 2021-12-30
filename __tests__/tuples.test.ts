@@ -1,14 +1,14 @@
 import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTuple, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct} from "../features/tuples"
-import { IPoint, IVector, Vector, Point, Tuple } from "../types/types"
+import { Vector, Point, Tuple } from "../types/types"
 
-const tuplePoint: IPoint = {
+const tuplePoint: Point = {
   x: 4.3,
   y: -4.2,
   z: 3.1,
   w: 1.0
 }
 
-const tupleVector: IVector = {
+const tupleVector: Vector = {
   x: 4.3,
   y: -4.2,
   z: 3.1,
