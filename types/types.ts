@@ -89,3 +89,4 @@ export class Color implements ITuple {
     w ? this.w = w : this.w = 0;
   }
 }
+
