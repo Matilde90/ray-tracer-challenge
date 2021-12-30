@@ -1,14 +1,14 @@
-import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTuple, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct} from "../features/tuples"
-import { IPoint, IVector, Vector, Point, Tuple } from "../types/types"
+import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTuple, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct } from "../features/tuples"
+import { Vector, Point, Tuple, Color } from "../types/types"
 
-const tuplePoint: IPoint = {
+const tuplePoint: Point = {
   x: 4.3,
   y: -4.2,
   z: 3.1,
   w: 1.0
 }
 
-const tupleVector: IVector = {
+const tupleVector: Vector = {
   x: 4.3,
   y: -4.2,
   z: 3.1,
@@ -197,9 +197,25 @@ describe("crossProduct", () => {
   const a = new Vector(1, 2, 3)
   const b = new Vector(2, 3, 4)
   it("the cross product of two vectors", () => {
-    expect(crossProduct(a, b)).toEqual(new Vector (-1, 2, -1))
+    expect(crossProduct(a, b)).toEqual(new Vector(-1, 2, -1))
   })
   it("the cross product of two vectors", () => {
     expect(crossProduct(b, a)).toEqual(new Vector(1, -2, 1))
+  })
+})
+
+describe("colors operations", () => {
+  const c1 = new Color(0.9, 0.6, 0.75)
+  const c2 = new Color(0.7, 0.1, 0.25)
+  it("it should add colors correctly", () => {
+    expect(sumTuple(c1, c2)).toEqual(new Color(1.6, 0.7, 1.0))
+  })
+  it("it should subtract colors correctly", () => {
+    console.log(c1, "c1")
+    console.log(c2, "c2")
+    expect(subtractTuple(c1, c2)).toEqual(new Color(0.2, 0.5, 0.5))
+  })
+  it("it should multiply color by a scalar", () => {
+    expect(multiplyTuple(new Color(0.2, 0.3, 0.4), 2)).toEqual(new Color(0.4, 0.6, 0.8))
   })
 })
