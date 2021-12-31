@@ -8,7 +8,7 @@ export const pointOrVector = (a: Tuple): string => {
   return a.w === 1.0 ? "is a point" : a.w === 0.0 ? "is a vector" : "is nor a point nor a vector";
 }
 
-export const sumTuple = (a: Tuple, b: Tuple): Tuple | Error => {
+export const sumTuple = (a: Tuple, b: Tuple): Tuple => {
   if (pointOrVector(a) === "is a point" && pointOrVector(b) === "is a point") {
     throw new Error("illegal operation: do not add two points")
   }
@@ -20,7 +20,7 @@ export const areTuplesEqual = (a: number, b: number): boolean => {
   return Math.abs(a - b) < EPSILON ? true : false
 }
 
-export const subtractTuple = (a: Tuple, b: Tuple): Tuple | Error => {
+export const subtractTuple = (a: Tuple, b: Tuple): Tuple => {
   if (pointOrVector(a) === "is a vector" && pointOrVector(b) === "is a point") {
     throw new Error("illegal operation: do not subtract a point from a vector")
   }
@@ -32,7 +32,7 @@ export const subtractTuple = (a: Tuple, b: Tuple): Tuple | Error => {
   return new Tuple(x, y, z, w)
 }
 
-export const negateTuple = (tuple: Tuple): Tuple | Error => {
+export const negateTuple = (tuple: Tuple): Tuple => {
   const zero = new Vector(0, 0, 0)
   return subtractTuple(zero, tuple)
 }
