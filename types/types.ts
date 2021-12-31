@@ -1,13 +1,6 @@
-export interface ITuple {
-  x: number;
-  y: number;
-  z: number;
-  w: number;
-}
+export type Accessor = keyof Tuple;
 
-export type Accessor = "x" | "y" | "w" | "z"
-
-export class Point implements ITuple {
+export class Point  {
   x: number;
   y: number;
   z: number;
@@ -21,7 +14,7 @@ export class Point implements ITuple {
   }
 }
 
-export class Vector implements ITuple {
+export class Vector {
   x: number;
   y: number;
   z: number;
@@ -35,7 +28,7 @@ export class Vector implements ITuple {
   }
 }
 
-export class Tuple implements ITuple {
+export class Tuple {
   x: number;
   y: number;
   z: number;
@@ -50,34 +43,34 @@ export class Tuple implements ITuple {
 }
 
 export interface IProjectile {
-  position: ITuple;
-  velocity: ITuple;
+  position: Tuple;
+  velocity: Tuple;
 }
 
 export class Projectile implements IProjectile {
-  position: ITuple;
-  velocity: ITuple;
-  constructor(position: ITuple, velocity: ITuple) {
+  position: Tuple;
+  velocity: Tuple;
+  constructor(position: Tuple, velocity: Tuple) {
     this.position = position;
     this.velocity = velocity
   }
 }
 
 export interface IEnvironment {
-  gravity: ITuple;
-  wind: ITuple;
+  gravity: Tuple;
+  wind: Tuple;
 }
 
 export class Environment implements IEnvironment {
-  gravity: ITuple;
-  wind: ITuple;
-  constructor(gravity: ITuple, wind: ITuple) {
+  gravity: Tuple;
+  wind: Tuple;
+  constructor(gravity: Tuple, wind: Tuple) {
     this.gravity = gravity;
     this.wind = wind;
   }
 }
 
-export class Color implements ITuple {
+export class Color implements Tuple {
   x: number;
   y: number;
   z: number;
@@ -89,4 +82,3 @@ export class Color implements ITuple {
     w ? this.w = w : this.w = 0;
   }
 }
-
