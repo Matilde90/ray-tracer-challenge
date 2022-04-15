@@ -28,4 +28,4 @@ export const recursiveRunTick = (env: Environment, proj: Projectile): string => 
   return projectilePosition.position.y > 0 ? recursiveRunTick(env, projectilePosition) : "done"
 }
 
-recursiveRunTick(e, p)
+// recursiveRunTick(e, p)

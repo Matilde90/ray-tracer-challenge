@@ -1,5 +1,6 @@
 import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTupleByScalar, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct, multiplyTuple } from "../features/tuples"
-import { Vector, Point, Tuple, Color } from "../types/types"
+import { writingPixelToCanvas } from "../features/canvas"
+import { Vector, Point, Tuple, Color, Canvas } from "../types/types"
 
 const tuplePoint: Point = {
   x: 4.3,
@@ -220,5 +221,13 @@ describe("colors operations", () => {
   })
   it("it should multiply color", () => {
     expect(multiplyTuple(new Color(1, 0.2, 0.4), new Color(0.9, 1, 0.1))).toEqual(new Color(0.9, 0.2, 0.04))
+  })
+})
+
+describe("Write pixel to canvas", () => {
+  const c = new Canvas(10, 20)
+  const color = new Color(0, 0, 0)
+  it("write pixel should work", () => {
+    expect(writingPixelToCanvas(c, 10, 20, color))
   })
 })

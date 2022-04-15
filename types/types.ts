@@ -1,6 +1,8 @@
+import { NumberOfHumanWorkersPerDataObject } from "aws-sdk/clients/sagemaker";
+
 export type Accessor = keyof Tuple;
 
-export class Point  {
+export class Point {
   x: number;
   y: number;
   z: number;
@@ -80,5 +82,16 @@ export class Color implements Tuple {
     this.y = y;
     this.z = z;
     w ? this.w = w : this.w = 0;
+  }
+}
+
+export class Canvas {
+  width: number;
+  height: number;
+  color: Color;
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+    this.color = new Color(0, 0, 0) // initialised color to black
   }
 }
