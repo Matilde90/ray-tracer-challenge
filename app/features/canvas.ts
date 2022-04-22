@@ -1,4 +1,4 @@
-import { Color } from "../types/types"
+import { Color, Canvas } from "../types/types"
 
 export const createCanvas = (width: number, height: number, color: Color, id: string) => {
   const canvas = document.createElement('canvas') as HTMLCanvasElement;
@@ -19,9 +19,11 @@ export const writingPixelToCanvas = (canvas: HTMLCanvasElement, x: number, y: nu
   return
 }
 
-export const canvasToPPM = (canvas: HTMLCanvasElement) => {
-  const PPMString = `P3\n${canvas.width} ${canvas.height} \n255`
-  console.log(PPMString)
+export const canvasToPPM = (canvas: Canvas) => {
+  const header = `P3\n${canvas.width} ${canvas.height} \n255`
+  console.log(header)
+  const body = "todo"
+  const PPMString = `${header}\n${body}`
   return PPMString
 }
 
@@ -31,4 +33,4 @@ console.log(`x: ${color.x}, ${color.y}, ${color.z}`)
 createCanvas(800, 700, color, "canvas")
 const myCanvas = document.getElementById('canvas') as HTMLCanvasElement
 writingPixelToCanvas(myCanvas, 200, 5, new Color(4, 244, 0))
-canvasToPPM(myCanvas)
+canvasToPPM(new Canvas(200,400))

@@ -83,15 +83,13 @@ export class Color implements Tuple {
   }
 }
 
-// export class Canvas {
-//   width: number;
-//   height: number;
-//   color: Color;
-//   id: string;
-//   constructor(width: number, height: number, id: string) {
-//     this.width = width;
-//     this.height = height;
-//     this.color = new Color(0, 0, 0); // initialise color to black
-//     this.id = id;
-//   }
-// }
+export class Canvas {
+  width: number;
+  height: number;
+  color: Color;
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+    this.color = new Color(0, 0, 0); // initialise color to black
+  }
+}
