@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Canvas = exports.Color = exports.Environment = exports.Projectile = exports.Tuple = exports.Vector = exports.Point = void 0;
+exports.Color = exports.Environment = exports.Projectile = exports.Tuple = exports.Vector = exports.Point = void 0;
 class Point {
     constructor(x, y, z) {
         this.x = x;
@@ -51,11 +51,15 @@ class Color {
     }
 }
 exports.Color = Color;
-class Canvas {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
-        this.color = new Color(0, 0, 0); // initialised color to black
-    }
-}
-exports.Canvas = Canvas;
+// export class Canvas {
+//   width: number;
+//   height: number;
+//   color: Color;
+//   id: string;
+//   constructor(width: number, height: number, id: string) {
+//     this.width = width;
+//     this.height = height;
+//     this.color = new Color(0, 0, 0); // initialise color to black
+//     this.id = id;
+//   }
+// }

@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tuples_1 = require("../features/tuples");
-const canvas_1 = require("../features/canvas");
 const types_1 = require("../types/types");
 const tuplePoint = {
     x: 4.3,
@@ -198,10 +197,10 @@ describe("colors operations", () => {
         expect((0, tuples_1.multiplyTuple)(new types_1.Color(1, 0.2, 0.4), new types_1.Color(0.9, 1, 0.1))).toEqual(new types_1.Color(0.9, 0.2, 0.04));
     });
 });
-describe("Write pixel to canvas", () => {
-    const c = new types_1.Canvas(10, 20);
-    const color = new types_1.Color(0, 0, 0);
-    it("write pixel should work", () => {
-        expect((0, canvas_1.writingPixelToCanvas)(c, 10, 20, color));
-    });
-});
+// describe("Write pixel to canvas", () => {
+//   const c = new Canvas(10, 20, "canvas")
+//   const color = new Color(0, 0, 0)
+//   it("write pixel should work", () => {
+//     expect(writingPixelToCanvas(c, 10, 20, color))
+//   })
+// })
