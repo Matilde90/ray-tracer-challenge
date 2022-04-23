@@ -1,5 +1,5 @@
 import { accessTuples, areTuplesEqual, pointOrVector, sumTuple, subtractTuple, negateTuple, multiplyTupleByScalar, divideTuple, computeMagnitude, normaliseVector, dotProduct, crossProduct, multiplyTuple } from "../features/tuples"
-import { writingPixelToCanvas } from "../features/canvas"
+// import { writingPixelToHTMLCanvas } from "../features/canvas"
 import { Vector, Point, Tuple, Color } from "../types/types"
 
 const tuplePoint: Point = {

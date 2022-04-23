@@ -86,10 +86,20 @@ export class Color implements Tuple {
 export class Canvas {
   width: number;
   height: number;
-  color: Color;
+  backgroundColor: Color;
+  matrix: Color[][];
   constructor(width: number, height: number) {
     this.width = width;
     this.height = height;
-    this.color = new Color(0, 0, 0); // initialise color to black
+    this.backgroundColor = new Color(255, 255, 255);
+    this.matrix = [[]];
+    for (let i = 0; i < this.width; i++) {
+      this.matrix[i] = [];
+      console.log(this.matrix)
+      for (let j = 0; j < this.height; j++) {
+        console.log("m")
+        this.matrix[i][j] = new Color(255, 255, 255);;
+      }
+    }
   }
 }

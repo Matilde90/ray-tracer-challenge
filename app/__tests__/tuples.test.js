@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tuples_1 = require("../features/tuples");
+// import { writingPixelToHTMLCanvas } from "../features/canvas"
 const types_1 = require("../types/types");
 const tuplePoint = {
     x: 4.3,
