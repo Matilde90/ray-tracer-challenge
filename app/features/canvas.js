@@ -21,13 +21,25 @@ const types_1 = require("../types/types");
 // }
 const writingPixelToCanvas = (canvas, x, y, color) => {
     canvas.matrix[x - 1][y - 1] = color;
-    console.log(canvas.matrix);
     return canvas.matrix;
 };
 exports.writingPixelToCanvas = writingPixelToCanvas;
+// const createBlankArrayStructure = (canvas: Canvas) => {
+//   let array = [];
+//   for (let i = 0; i < canvas.height; i++) {
+//     let row = new Array(canvas.width).fill([0, 0, 0])
+//     array.push(row)
+//   }
+//   return array
+// }
+const writeBody = (canvas, x, y, color) => {
+    // let blackBodyArray = createBlankArrayStructure(canvas)
+    let matrix = (0, exports.writingPixelToCanvas)(myCanvas, x, y, color);
+    console.log(matrix);
+};
 const canvasToPPM = (canvas) => {
-    const header = `P3\n${canvas.width} ${canvas.height} \n255`;
-    console.log(header);
+    const magicNumber = 255;
+    const header = `P3\n${canvas.width} ${canvas.height} \n${magicNumber}`;
     const body = "todo";
     const PPMString = `${header}\n${body}`;
     return PPMString;
@@ -38,7 +50,7 @@ exports.canvasToPPM = canvasToPPM;
 // writingPixelToHTMLCanvas(myHTMLCanvas, new Color(4, 244, 0))
 // canvasToPPM(new Canvas(200, 400))
 new types_1.Color(2, 0, 1);
-const myCanvas = new types_1.Canvas(8, 1);
-console.log(myCanvas);
-// writingPixelToCanvas(myCanvas, 1, 1, new Color(0,0,2))
+const myCanvas = new types_1.Canvas(3, 3);
+(0, exports.writingPixelToCanvas)(myCanvas, 1, 1, new types_1.Color(0, 0, 2));
 // writingPixelToCanvas(myCanvas, 1, 3, new Color(1, 0, 0))
+const body = writeBody(myCanvas, 1, 1, new types_1.Color(0, 0, 2));

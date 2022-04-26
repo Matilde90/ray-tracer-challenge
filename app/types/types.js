@@ -56,15 +56,10 @@ class Canvas {
         this.width = width;
         this.height = height;
         this.backgroundColor = new Color(255, 255, 255);
-        this.matrix = [[]];
-        for (let i = 0; i < this.width; i++) {
-            this.matrix[i] = [];
-            console.log(this.matrix);
-            for (let j = 0; j < this.height; j++) {
-                console.log("m");
-                this.matrix[i][j] = new Color(255, 255, 255);
-                ;
-            }
+        this.matrix = [];
+        for (let i = 0; i < this.height; i++) {
+            let row = new Array(this.width).fill(this.backgroundColor);
+            this.matrix.push(row);
         }
     }
 }
