@@ -1,24 +1,5 @@
 import { Color, Canvas } from "../types/types"
 
-// export const createHTMLCanvas = (width: number, height: number, color: Color, id: string) => {
-//   const canvas = document.createElement('canvas') as HTMLCanvasElement;
-//   canvas.id = id;
-//   canvas.width = width;
-//   canvas.height = height;
-//   canvas.setAttribute("style", `color:rgb(${color.x},${color.y},${color.z}); border: 10px solid black;`);
-//   const ctx = canvas.getContext("2d");
-//   document.body.appendChild(canvas)
-// }
-
-// export const writingPixelToHTMLCanvas = (canvas: HTMLCanvasElement, color: Color) => {
-//   const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
-//   ctx.beginPath();
-//   ctx.fillStyle = `rgb(${color.x},${color.y},${color.z})`;
-//   ctx.fillRect(0, 0, canvas.width, canvas.height)
-//   ctx.closePath();
-//   return
-// }
-
 export const writingPixelToCanvas = (canvas: Canvas, x: number, y: number, color: Color) => {
   if (canvas.height < y || canvas.width < x) {
     return new Error("Impossible to write to canvas. Point exceeds canvas dimensions")
@@ -62,14 +43,7 @@ const writeBody = (canvas: Canvas) => {
       return `${row.x} ${row.y} ${row.z} `
     })
   })
-  // let body = marray.map(a => a.join("")).join("\n")
-  let body = marray.map(a => a.join(""))
-  body.map(row => {
-    if (row.length > 70) {
-      throw new Error("text length is higher than 70")
-    }
-  })
-  return body.join("\n")
+  return marray.map(a => a.join("")).join("\n")
 }
 
 export const canvasToPPM = (canvas: Canvas) => {
@@ -80,13 +54,11 @@ export const canvasToPPM = (canvas: Canvas) => {
   return PPMString
 }
 
-// createHTMLCanvas(800, 700, color, "canvas")
-// const myHTMLCanvas = document.getElementById('canvas') as HTMLCanvasElement
-// writingPixelToHTMLCanvas(myHTMLCanvas, new Color(4, 244, 0))
-// canvasToPPM(new Canvas(200, 400))
+// tests to run
 new Color(2, 0, 1)
-const myCanvas = new Canvas(9, 2)
+const myCanvas = new Canvas(10, 4)
 writingPixelToCanvas(myCanvas, 1, 1, new Color(-88, 0, 258))
 writingPixelToCanvas(myCanvas, 3, 3, new Color(-2, 33, 0))
-writingPixelToCanvas(myCanvas, 2, 3, new Color(1, 0, 0))
+writingPixelToCanvas(myCanvas, 2, 3, new Color(1, 7, 0))
+writingPixelToCanvas(myCanvas, 1, 2, new Color(90, 0, 0))
 console.log(canvasToPPM(myCanvas))
