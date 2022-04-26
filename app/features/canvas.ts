@@ -37,7 +37,7 @@ const clampData = (canvas: Canvas, magicNumber: number) => {
         row.y = 0
       }
       if (row.z < 0) {
-        row.z = 0 
+        row.z = 0
       }
       if (row.x > magicNumber) {
         row.x = magicNumber
@@ -62,8 +62,14 @@ const writeBody = (canvas: Canvas) => {
       return `${row.x} ${row.y} ${row.z} `
     })
   })
-  let body = marray.map(a => a.join("")).join("\n")
-  return body
+  // let body = marray.map(a => a.join("")).join("\n")
+  let body = marray.map(a => a.join(""))
+  body.map(row => {
+    if (row.length > 70) {
+      throw new Error("text length is higher than 70")
+    }
+  })
+  return body.join("\n")
 }
 
 export const canvasToPPM = (canvas: Canvas) => {
@@ -79,7 +85,7 @@ export const canvasToPPM = (canvas: Canvas) => {
 // writingPixelToHTMLCanvas(myHTMLCanvas, new Color(4, 244, 0))
 // canvasToPPM(new Canvas(200, 400))
 new Color(2, 0, 1)
-const myCanvas = new Canvas(3, 4)
+const myCanvas = new Canvas(9, 2)
 writingPixelToCanvas(myCanvas, 1, 1, new Color(-88, 0, 258))
 writingPixelToCanvas(myCanvas, 3, 3, new Color(-2, 33, 0))
 writingPixelToCanvas(myCanvas, 2, 3, new Color(1, 0, 0))

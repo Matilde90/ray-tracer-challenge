@@ -55,7 +55,7 @@ class Canvas {
     constructor(width, height) {
         this.width = width;
         this.height = height;
-        this.backgroundColor = new Color(255, 255, 255);
+        this.backgroundColor = new Color(0, 0, 0);
         this.matrix = [];
         for (let i = 0; i < this.height; i++) {
             let row = new Array(this.width).fill(this.backgroundColor);
